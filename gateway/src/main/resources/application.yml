@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: album-service
+          uri: lb://KEYCLOAKMS-ALBUM
+          predicates:
+            - Path=/album/**
+
+
+        - id: book-service
+          uri: lb://KEYCLOAKMS-BOOK
+          predicates:
+            - Path=/book/**
+
+  application:
+    name: keycloakms-gateway
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9100/auth/realms/master
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+server:
+  port: 8280

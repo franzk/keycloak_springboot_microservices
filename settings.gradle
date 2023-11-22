@@ -1,0 +1,5 @@
+rootProject.name = 'keyclaokms'
+include 'album-service'
+include 'book-service'
+include 'gateway'
+include 'service-registry'
